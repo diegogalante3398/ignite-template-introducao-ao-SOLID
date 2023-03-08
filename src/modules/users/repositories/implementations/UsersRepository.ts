@@ -24,6 +24,7 @@ class UsersRepository implements IUsersRepository {
     Object.assign(user, {
       name,
       email,
+      admin: false,
       created_at: new Date(),
     });
 
@@ -50,9 +51,9 @@ class UsersRepository implements IUsersRepository {
       updated_at: new Date(),
     });
 
-    const userUploated = Object.assign(this.users, receivedUser);
+    Object.assign(this.users, receivedUser);
 
-    return userUploated;
+    return receivedUser;
   }
 
   list(): User[] {
